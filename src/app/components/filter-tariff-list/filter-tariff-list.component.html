@@ -1,0 +1,12 @@
+<div class="sorting-controls">
+    <label>
+      Sort by:
+      <select [(ngModel)]="selectedSortOption" (change)="sortTariffs()">
+        <option value="name">Name</option>
+        <option value="downloadSpeed">Download Speed</option>
+        <option value="uploadSpeed">Upload Speed</option>
+        <option value="price">Price</option>
+      </select>
+    </label>
+  </div>
+  
