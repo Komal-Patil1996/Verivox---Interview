@@ -1,21 +1,24 @@
-     $border-color: #ccc;
-     $border-radius: 8px;
-     $box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-
-     @mixin flex-center {
-     display: flex;
-     justify-content: space-between;
-     align-items: center;
-     flex-wrap: wrap; 
-     }
-
-     @mixin flex-direction {
-     display: flex;
-     flex-direction: column;
-     }
+     @import '../styles.scss';
 
      .filter{
       display: flex;
+     }
+
+     .upload-speed{
+      @include flex-direction();
+     }
+
+     .download-speed{
+      @include flex-direction();
+     }
+
+     .tablet-device{
+      @include flex-direction();
+      @include no-display();
+     }
+
+     .mobile-device{
+      @include no-display();
      }
 
 
@@ -46,8 +49,7 @@
           margin-top: 0;
           margin-bottom: 10px;
         }
-  
-   
+         
         .buy-tariff{
          @include flex-direction();
         }
@@ -75,9 +77,6 @@
     
     
       @media (max-width: 1023px) and (min-width: 768px) {
-        .benefit-list{
-            display: none;
-        }
      
         .tariff-box {
           width: 95%;
@@ -85,13 +84,64 @@
 
         }
       }
-      @media (max-width: 767px){
+
+      @media (max-width: 767px)  and (min-width: 577px) {
+
         .benefit-list{
-            display: none;
+          @include no-display();
         }
+
+        .tablet-device{
+          @include flex-direction();
+
+         .margin{
+          margin-bottom: 10px;
+         }          
+        }
+        .upload-speed{
+          @include no-display();
+        }
+    
+         .download-speed{
+          @include no-display();
+        }
+
+         .mobile-device{
+          @include no-display();
+        }
+
         .tariff-box {
           width: 95%;
           padding: 10px;
+        }
+      }
+
+      @media (max-width: 576px) {
+
+        .benefit-list{
+          @include no-display();
+        }
+
+        .tablet-device{
+          @include no-display();
+        }          
+        
+        .upload-speed{
+          @include no-display();
+        }
+    
+         .download-speed{
+          @include no-display();
+        }
+
+         .mobile-device{
+          display: block;
+         }
+
+        .tariff-box {
+          width: 95%;
+          padding: 10px;
+          flex-wrap: nowrap;
         }
       }
 
