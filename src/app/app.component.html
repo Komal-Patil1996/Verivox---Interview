@@ -1,12 +1,12 @@
   <div>
-      <div style="display: flex;">
+      <div class="filter">
        <app-filter-tariff-list (sortOptionChanged)="sortTariffs($event)"></app-filter-tariff-list>
        <app-filter-by-name (searchChange)="onSearchChange($event)"></app-filter-by-name>
       </div>
     <ul class="tariff-list">
        <li *ngFor="let tariff of tariffs" class="tariff-item">
         <div class="tariff-box" >
-         <h2>{{ tariff.name }}</h2>
+         <h2 class="tariff-name">{{ tariff.name }}</h2>
 
          <div class="download-speed">
           <strong>Download </strong>        

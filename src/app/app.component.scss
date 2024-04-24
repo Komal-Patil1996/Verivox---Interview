@@ -1,18 +1,23 @@
-$border-color: #ccc;
-$border-radius: 8px;
-$box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+     $border-color: #ccc;
+     $border-radius: 8px;
+     $box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 
-@mixin flex-center {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap; 
-}
+     @mixin flex-center {
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     flex-wrap: wrap; 
+     }
 
-@mixin flex-direction {
-  display: flex;
-  flex-direction: column;
-}
+     @mixin flex-direction {
+     display: flex;
+     flex-direction: column;
+     }
+
+     .filter{
+      display: flex;
+     }
+
 
      .tariff-list {
        list-style-type: none;
@@ -37,7 +42,7 @@ $box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         box-shadow: $box-shadow;
 
       
-        h2 {
+        .tariff-name {
           margin-top: 0;
           margin-bottom: 10px;
         }
