@@ -1,8 +1,9 @@
   <div>
-      <div class="filter">
+      <div class="filter-tariff">
        <app-filter-tariff-list (sortOptionChanged)="sortTariffs($event)"></app-filter-tariff-list>
        <app-filter-by-name (searchChange)="onSearchChange($event)"></app-filter-by-name>
       </div>
+
     <ul class="tariff-list">
        <li *ngFor="let tariff of tariffs; let i = index" class="tariff-item">
         <div class="tariff-box" >
