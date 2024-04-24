@@ -9,6 +9,11 @@ $box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   flex-wrap: wrap; 
 }
 
+@mixin flex-direction {
+  display: flex;
+  flex-direction: column;
+}
+
      .tariff-list {
        list-style-type: none;
        padding: 0;
@@ -22,13 +27,10 @@ $box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
        margin-bottom: 20px;
      
       }
-  
-   
 
       .tariff-box {
 
         @include flex-center();
-
         border: 1px solid $border-color;
         border-radius: $border-radius;
         padding: 15px;
@@ -40,9 +42,16 @@ $box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
           margin-bottom: 10px;
         }
   
-        p {
-          margin: 5px 0;
+   
+        .buy-tariff{
+         @include flex-direction();
         }
+
+        .tarifsf-price{
+          font-weight: 600; 
+          padding: 15px;
+        }
+     
         .tariff-button {
             background-color: grey;
             color: white;
@@ -71,13 +80,14 @@ $box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 
         }
       }
-      @media (max-width: 767px) {
+      @media (max-width: 767px){
         .benefit-list{
             display: none;
         }
-     
         .tariff-box {
           width: 95%;
           padding: 10px;
         }
       }
+
+    

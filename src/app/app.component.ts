@@ -9,6 +9,7 @@ import { Tariffs } from './model/tariff-detail.model';
 })
 export class AppComponent implements OnInit {
   tariffs : Tariffs[] = [];
+  tariffsResultList : Tariffs[] = [];
   sortedTariffs: Tariffs[] = [];
 
   constructor(private tarrifDetailService : TariffDetailsService) {}
@@ -17,10 +18,12 @@ export class AppComponent implements OnInit {
   ngOnInit(){
     this.tarrifDetailService.getTariffDetailsData().subscribe(res => {
       this.tariffs = res;
+      this.tariffsResultList = res;
+
     });
   }
 
-  sortTariffs(sortOption: any): void {
+  sortTariffs(sortOption: Number | string): void {
     switch (sortOption) {
       case 'name':
         this.sortedTariffs = this.tariffs.sort((a, b) => a.name.localeCompare(b.name));
@@ -38,5 +41,14 @@ export class AppComponent implements OnInit {
         this.sortedTariffs = this.tariffs;
         break;
     }
+  }
+
+  onSearchChange(searchTerm: string): void {
+    if(searchTerm === ""){
+      this.tariffs = this.tariffsResultList;
+    }
+    this.tariffs = this.tariffsResultList.filter(tariff => 
+      tariff.name.toLowerCase().includes(searchTerm.toLowerCase())
+    );
   }
 }

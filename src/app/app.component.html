@@ -1,33 +1,35 @@
-<ul class="tariff-list">
-  <app-filter-tariff-list (sortOptionChanged)="sortTariffs($event)"></app-filter-tariff-list>
+  <div>
+      <div style="display: flex;">
+       <app-filter-tariff-list (sortOptionChanged)="sortTariffs($event)"></app-filter-tariff-list>
+       <app-filter-by-name (searchChange)="onSearchChange($event)"></app-filter-by-name>
+      </div>
+    <ul class="tariff-list">
+       <li *ngFor="let tariff of tariffs" class="tariff-item">
+        <div class="tariff-box" >
+         <h2>{{ tariff.name }}</h2>
 
-  <li *ngFor="let tariff of tariffs" class="tariff-item">
-    <div class="tariff-box" >
-      <h2>{{ tariff.name }}</h2>
-
-        <div style="display: flex; flex-direction: column;">
+         <div class="download-speed">
           <strong>Download </strong>        
           <i class="fas fa-download"> {{ tariff.downloadSpeed / 1000000 }} Mbps</i>
-        </div>
+         </div>
 
-        <div style="display: flex; flex-direction: column;">
+         <div class="upload-speed">
           <strong>Upload </strong> 
           <i class="fas fa-upload">{{ tariff.uploadSpeed / 1000000 }} Mbps</i> 
-        </div>
+         </div>
 
-        <div class="benefit-list"><strong>Benefit</strong>
+         <div class="benefit-list"><strong>Benefit</strong>
           <li *ngFor="let benefit of tariff.benefits" >
             {{benefit}}
           </li>
-        </div>
+         </div>
 
-        <div style="display: flex; flex-direction: column;"> 
-          <span style="font-weight: 600; padding: 15px;">{{ tariff.price }} € </span>
+         <div class="buy-tariff"> 
+          <span class="tariff-price">{{ tariff.price }} € </span>
           <button class="tariff-button">To Tariff  > </button>
-        </div>
+         </div>
          
-     </div>
-  </li>
-</ul>
-
-
+        </div>
+       </li>
+    </ul>
+</div>
